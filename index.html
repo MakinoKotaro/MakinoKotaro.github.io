@@ -2,19 +2,111 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>制作物一覧 牧野皐太郎</title>
+  <title>制作物一覧　牧野皐太郎</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #A0EEE1;
+      font-family: 'Zen Maru Gothic', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+    .gallery-container {
+      position: relative;
+      width: 640px;
+      margin: 0 auto;
+    }
+    .gallery-item {
+      display: none;
+      width: 100%;
+    }
+    .active {
+      display: block;
+    }
+    .button-42 {
+      background-color: initial;
+      background-image: linear-gradient(-180deg, #FF7E31, #E62C03);
+      border-radius: 6px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: inline-block;
+      font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
+      height: 40px;
+      line-height: 40px;
+      outline: 0;
+      overflow: hidden;
+      padding: 0 20px;
+      pointer-events: auto;
+      position: relative;
+      text-align: center;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      vertical-align: top;
+      white-space: nowrap;
+      width: auto;
+      margin: 10px;
+      border: 0;
+      transition: box-shadow .2s;
+    }
+    .button-42:hover {
+      box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+    }
+  </style>
 </head>
 <body>
-  <h1>画像の表示</h1>
-  <img src="images/sample.png" alt="サンプル画像" width="300">
 
-  <h1>動画の表示</h1>
-  <video width="320" height="240" controls>
-    <source src="videos/sample.mp4" type="video/mp4">
-    お使いのブラウザは video タグに対応していません。
-  </video>
+  <h1>ギャラリー</h1>
 
-  <h1>リンクの表示</h1>
-  <a href="https://google.com" target="_blank">Exampleサイトへ</a>
+  <div class="gallery-container">
+    <img src="images/image1.png" class="gallery-item active" alt="画像1">
+    <img src="images/image2.png" class="gallery-item" alt="画像2">
+    <img src="images/image3.png" class="gallery-item" alt="画像3">
+    <img src="images/image4.png" class="gallery-item" alt="画像4">
+    <video class="gallery-item" controls>
+      <source src="videos/sample.mp4" type="video/mp4">
+      お使いのブラウザは video タグに対応していません。
+    </video>
+  </div>
+
+  <div>
+    <button class="button-42" id="prevButton">＜</button>
+    <button class="button-42" id="nextButton">＞</button>
+  </div>
+
+  <script>
+    class Gallery {
+      constructor(selector) {
+        this.items = document.querySelectorAll(selector);
+        this.currentIndex = 0;
+        this.showItem(this.currentIndex);
+
+        // イベントリスナー登録
+        document.getElementById('prevButton').addEventListener('click', () => this.prev());
+        document.getElementById('nextButton').addEventListener('click', () => this.next());
+      }
+
+      showItem(index) {
+        this.items.forEach(item => item.classList.remove('active'));
+        this.items[index].classList.add('active');
+      }
+
+      prev() {
+        this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
+        this.showItem(this.currentIndex);
+      }
+
+      next() {
+        this.currentIndex = (this.currentIndex + 1) % this.items.length;
+        this.showItem(this.currentIndex);
+      }
+    }
+
+    // --- クラスを使ってギャラリー初期化 ---
+    const gallery = new Gallery('.gallery-item');
+  </script>
+
 </body>
 </html>
