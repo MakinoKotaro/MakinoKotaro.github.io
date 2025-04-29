@@ -2,20 +2,23 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>制作物一覧　牧野皐太郎</title>
+  <title>制作物一覧 牧野皐太郎</title>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #A0EEE1;
+      background-color: #F5F5FA;
       font-family: 'Zen Maru Gothic', sans-serif;
       text-align: center;
       margin: 0;
       padding: 20px;
     }
+    .gallery-block {
+      margin-bottom: 80px;
+    }
     .gallery-container {
       position: relative;
       width: 640px;
-      margin: 0 auto;
+      margin: 0 auto 20px;
     }
     .gallery-item {
       display: none;
@@ -24,68 +27,142 @@
     .active {
       display: block;
     }
-    .button-42 {
-      background-color: initial;
-      background-image: linear-gradient(-180deg, #FF7E31, #E62C03);
-      border-radius: 6px;
-      box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
-      color: #FFFFFF;
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    /* --- ▼ Button 67 スタイル --- */
+    .button-67 {
+      align-items: center;
+      background: #f5f5fa;
+      border: 0;
+      border-radius: 8px;
+      box-shadow: -10px -10px 30px 0 #fff, 10px 10px 30px 0 #1d0dca17;
+      box-sizing: border-box;
+      color: #2a1f62;
       cursor: pointer;
-      display: inline-block;
-      font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
-      height: 40px;
-      line-height: 40px;
-      outline: 0;
-      overflow: hidden;
-      padding: 0 20px;
-      pointer-events: auto;
+      display: flex;
+      font-family: "Cascadia Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+      font-size: 1rem;
+      justify-content: center;
+      line-height: 1.5rem;
+      padding: 15px;
       position: relative;
       text-align: center;
-      touch-action: manipulation;
+      transition: .2s;
       user-select: none;
       -webkit-user-select: none;
-      vertical-align: top;
-      white-space: nowrap;
-      width: auto;
-      margin: 10px;
-      border: 0;
-      transition: box-shadow .2s;
+      touch-action: manipulation;
+      white-space: pre;
+      width: max-content;
+      word-break: normal;
+      word-spacing: normal;
     }
-    .button-42:hover {
-      box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+
+    .button-67:hover {
+      background: #f8f8ff;
+      box-shadow: -15px -15px 30px 0 #fff, 15px 15px 30px 0 #1d0dca17;
     }
+
+    @media (min-width: 768px) {
+      .button-67 {
+        padding: 24px;
+      }
+    }
+    /* --- ▲ Button 67 スタイル --- */
   </style>
 </head>
 <body>
 
-  <h1>ギャラリー</h1>
+  <h1>ギャラリー一覧</h1>
 
-  <div class="gallery-container">
-    <img src="images/image1.png" class="gallery-item active" alt="画像1">
-    <img src="images/image2.png" class="gallery-item" alt="画像2">
-    <img src="images/image3.png" class="gallery-item" alt="画像3">
-    <img src="images/image4.png" class="gallery-item" alt="画像4">
-    <video class="gallery-item" controls>
-      <source src="videos/sample.mp4" type="video/mp4">
-      お使いのブラウザは video タグに対応していません。
-    </video>
+  <!-- ギャラリー１ -->
+  <div class="gallery-block">
+    <div class="gallery-container" id="gallery1">
+      <img src="images/image1.png" class="gallery-item active" alt="画像1">
+      <img src="images/image2.png" class="gallery-item" alt="画像2">
+      <img src="images/image3.png" class="gallery-item" alt="画像3">
+      <img src="images/image4.png" class="gallery-item" alt="画像4">
+      <video class="gallery-item" controls>
+        <source src="videos/sample.mp4" type="video/mp4">
+        お使いのブラウザは video タグに対応していません。
+      </video>
+    </div>
+    <div class="button-container">
+      <button class="button-67 prev" data-target="gallery1">＜</button>
+      <button class="button-67 next" data-target="gallery1">＞</button>
+    </div>
   </div>
 
-  <div>
-    <button class="button-42" id="prevButton">＜</button>
-    <button class="button-42" id="nextButton">＞</button>
+  <!-- ギャラリー２ -->
+  <div class="gallery-block">
+    <div class="gallery-container" id="gallery2">
+      <img src="images/image1.png" class="gallery-item active" alt="画像1">
+      <img src="images/image2.png" class="gallery-item" alt="画像2">
+      <img src="images/image3.png" class="gallery-item" alt="画像3">
+      <img src="images/image4.png" class="gallery-item" alt="画像4">
+      <video class="gallery-item" controls>
+        <source src="videos/sample.mp4" type="video/mp4">
+        お使いのブラウザは video タグに対応していません。
+      </video>
+    </div>
+    <div class="button-container">
+      <button class="button-67 prev" data-target="gallery2">＜</button>
+      <button class="button-67 next" data-target="gallery2">＞</button>
+    </div>
+  </div>
+
+  <!-- ギャラリー３ -->
+  <div class="gallery-block">
+    <div class="gallery-container" id="gallery3">
+      <img src="images/image1.png" class="gallery-item active" alt="画像1">
+      <img src="images/image2.png" class="gallery-item" alt="画像2">
+      <img src="images/image3.png" class="gallery-item" alt="画像3">
+      <img src="images/image4.png" class="gallery-item" alt="画像4">
+      <video class="gallery-item" controls>
+        <source src="videos/sample.mp4" type="video/mp4">
+        お使いのブラウザは video タグに対応していません。
+      </video>
+    </div>
+    <div class="button-container">
+      <button class="button-67 prev" data-target="gallery3">＜</button>
+      <button class="button-67 next" data-target="gallery3">＞</button>
+    </div>
+  </div>
+
+  <!-- ギャラリー４ -->
+  <div class="gallery-block">
+    <div class="gallery-container" id="gallery4">
+      <img src="images/image1.png" class="gallery-item active" alt="画像1">
+      <img src="images/image2.png" class="gallery-item" alt="画像2">
+      <img src="images/image3.png" class="gallery-item" alt="画像3">
+      <img src="images/image4.png" class="gallery-item" alt="画像4">
+      <video class="gallery-item" controls>
+        <source src="videos/sample.mp4" type="video/mp4">
+        お使いのブラウザは video タグに対応していません。
+      </video>
+    </div>
+    <div class="button-container">
+      <button class="button-67 prev" data-target="gallery4">＜</button>
+      <button class="button-67 next" data-target="gallery4">＞</button>
+    </div>
   </div>
 
   <script>
     class Gallery {
-      constructor(selector) {
-        this.items = document.querySelectorAll(selector);
+      constructor(containerId) {
+        const container = document.getElementById(containerId);
+        this.items = container.querySelectorAll('.gallery-item');
         this.currentIndex = 0;
         this.showItem(this.currentIndex);
 
-        // イベントリスナー登録
-        document.getElementById('prevButton').addEventListener('click', () => this.prev());
-        document.getElementById('nextButton').addEventListener('click', () => this.next());
+        const prevButton = document.querySelector(`.prev[data-target="${containerId}"]`);
+        const nextButton = document.querySelector(`.next[data-target="${containerId}"]`);
+        
+        prevButton.addEventListener('click', () => this.prev());
+        nextButton.addEventListener('click', () => this.next());
       }
 
       showItem(index) {
@@ -104,8 +181,8 @@
       }
     }
 
-    // --- クラスを使ってギャラリー初期化 ---
-    const gallery = new Gallery('.gallery-item');
+    // 4つのギャラリーを生成
+    const galleries = ['gallery1', 'gallery2', 'gallery3', 'gallery4'].map(id => new Gallery(id));
   </script>
 
 </body>
