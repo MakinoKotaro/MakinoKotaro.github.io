@@ -162,13 +162,16 @@
       <div class="gallery-title">BeShop</div>
       <div class="inner-slider">
         <div class="inner-track" id="innerTrack0">
-          <img src="images/image1.png" class="gallery-image" alt="">
-          <img src="images/image2.png" class="gallery-image" alt="">
-          <img src="images/image3.png" class="gallery-image" alt="">
-		  <video class="gallery-image" controls>
-			<source src="videos/BeShopVideo.mp4" type="video/mp4">
-			お使いのブラウザは video タグに対応していません。
-		  </video>
+          <img src="images/BeShop_1.png" class="gallery-image" alt="">
+          <img src="images/BeShop_2.png" class="gallery-image" alt="">
+          <img src="images/BeShop_3.png" class="gallery-image" alt="">
+		  <iframe width="640" height="360"
+				src="https://www.youtube.com/embed/gWgOqF81SqM"
+				title="YouTube video player"
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen>
+		  </iframe>
         </div>
       </div>
       <div class="inner-nav">
@@ -246,9 +249,16 @@
       <div class="gallery-title">いつわりの記憶</div>
       <div class="inner-slider">
         <div class="inner-track" id="innerTrack1">
-          <img src="images/image4.png" class="gallery-image" alt="">
-          <img src="images/image1.png" class="gallery-image" alt="">
-          <img src="images/image2.png" class="gallery-image" alt="">
+          <img src="images/fakememory_1.png" class="gallery-image" alt="">
+          <img src="images/fakememory_2.png" class="gallery-image" alt="">
+          <img src="images/fakememory_3.png" class="gallery-image" alt="">
+		  <iframe width="640" height="360"
+				src="https://www.youtube.com/embed/CgUljkj7kgQ"
+				title="YouTube video player"
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen>
+		  </iframe>
         </div>
       </div>
       <div class="inner-nav">
@@ -326,8 +336,16 @@
       <div class="gallery-title">つなげてゼリー！</div>
       <div class="inner-slider">
         <div class="inner-track" id="innerTrack2">
-          <img src="images/image3.png" class="gallery-image" alt="">
-          <img src="images/image4.png" class="gallery-image" alt="">
+          <img src="images/jello_1.png" class="gallery-image" alt="">
+          <img src="images/jello_2.png" class="gallery-image" alt="">
+          <img src="images/jello_3.png" class="gallery-image" alt="">
+		  <iframe width="640" height="360"
+				src="https://www.youtube.com/embed/i3cL_2bvC5A"
+				title="YouTube video player"
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen>
+		  </iframe>
         </div>
       </div>
       <div class="inner-nav">
@@ -388,7 +406,7 @@
 		  <ul>
 			<li>チーム制作での役割と行動すべきことを考える機会になりました。</li>
 			<li>複雑な条件の処理</li>
-			    <a href = "https://unityroom.com/games/fakememory"
+			    <a href = "https://drive.google.com/drive/u/1/folders/1G2YJmpAervDveSx_i8pxkTwSRXNefIN4"
 			       target = "_blank"
 			       rel = "noopener noreferrer"
 			       onclick = "return confirmExternalLink(event)" >
@@ -463,6 +481,33 @@
       return true;
   }
 			  
+			  
+			  
+
+</script>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  let ytPlayers = [];
+
+  function onYouTubeIframeAPIReady() {
+    const iframes = document.querySelectorAll("iframe[src*='youtube.com/embed']");
+    iframes.forEach((iframe, index) => {
+      ytPlayers[index] = new YT.Player(iframe, {
+        events: {
+          'onStateChange': (event) => {
+            if (event.data === YT.PlayerState.PLAYING) {
+              iframe.classList.add("playing");
+              clearInterval(autoSlideInterval);
+            } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+              iframe.classList.remove("playing");
+              startAutoSlide(outerIndex);
+            }
+          }
+        }
+      });
+    });
+  }
 </script>
 
 </body>
